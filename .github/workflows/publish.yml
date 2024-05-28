@@ -28,7 +28,7 @@ jobs:
         dotnet-version: 6.x
 
     - name: Ensure GitHub NuGet Source
-      run: nuget sources add -name github -source https://nuget.pkg.github.com/Viabl/index.json -username gavintaylor -password ${{ secrets.PACKAGE_DEPLOY_PAT }} -StorePasswordInClearText
+      run: nuget sources add -name github -source https://nuget.pkg.github.com/Viabl/index.json -username gavintaylor -password ${{ secrets.INTACCT_PUB_PACKAGE_DEPLOY_PAT }} -StorePasswordInClearText
         
     - name: Install dependencies
       run: dotnet restore
@@ -40,4 +40,4 @@ jobs:
       run: dotnet pack
       
     - name: Publish to NuGet
-      run: nuget push **\*.nupkg -Source 'github' -ApiKey ${{ secrets.PACKAGE_DEPLOY_PAT }}
+      run: nuget push **\*.nupkg -Source 'github' -ApiKey ${{secrets.INTACCT_PUB_PACKAGE_DEPLOY_PAT}}
