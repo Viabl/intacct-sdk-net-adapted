@@ -28,6 +28,9 @@ jobs:
             3.1
             6.x
       
+      - name: Ensure GitHub NuGet Source
+        run: nuget sources add -name github -source https://nuget.pkg.github.com/Viabl/index.json -username gavintaylor -password ${{ secrets.PACKAGE_DEPLOY_PAT }} -StorePasswordInClearText
+
       - name: Install dependencies for .NET ${{ matrix.dotnet-version }}
         run: dotnet restore
         
