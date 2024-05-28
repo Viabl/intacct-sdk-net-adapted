@@ -61,6 +61,17 @@ namespace Intacct.SDK.Functions.AccountsPayable
             xml.WriteElement("warehouseid", WarehouseId);
             xml.WriteElement("billable", Billable);
 
+
+            if (Taxentry.Count > 0)
+            {
+                xml.WriteStartElement("taxentries");
+                foreach (AbstractBillLineTaxEntries taxEntry in Taxentry)
+                {
+                    taxEntry.WriteXml(ref xml);
+                }
+                xml.WriteEndElement(); //taxentries
+            }
+
             xml.WriteEndElement(); //lineitem
         }
 

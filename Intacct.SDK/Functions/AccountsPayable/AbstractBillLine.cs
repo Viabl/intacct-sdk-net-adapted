@@ -65,6 +65,7 @@ namespace Intacct.SDK.Functions.AccountsPayable
 
         public string WarehouseId;
 
+        public List<AbstractBillLineTaxEntries> Taxentry = new List<AbstractBillLineTaxEntries>();
         public Dictionary<string, dynamic> CustomFields = new Dictionary<string, dynamic>();
 
         protected AbstractBillLine()
@@ -73,5 +74,38 @@ namespace Intacct.SDK.Functions.AccountsPayable
         
         public abstract void WriteXml(ref IaXmlWriter xml);
         
+    }
+
+
+    public class BillLineTaxEntriesCreate : AbstractBillLineTaxEntries
+    {
+        public BillLineTaxEntriesCreate()
+        {
+        }
+
+        public override void WriteXml(ref IaXmlWriter xml)
+        {
+            //xml.WriteStartElement("taxentries");
+            xml.WriteStartElement("taxentry");
+
+            xml.WriteElement("detailid", TaxId);
+            xml.WriteElement("trx_tax", TaxValue);
+
+            xml.WriteEndElement();//taxentry
+            //xml.WriteEndElement(); //taxentries
+        }
+    }
+
+
+    public abstract class AbstractBillLineTaxEntries : IXmlObject
+    {
+        public string TaxId;
+        public decimal? TaxValue;
+
+        public abstract void WriteXml(ref IaXmlWriter xml);
+
+        protected AbstractBillLineTaxEntries()
+        {
+        }
     }
 }
