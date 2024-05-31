@@ -58,7 +58,7 @@ namespace Intacct.SDK.Functions.AccountsReceivable
 
         public string ReferenceNumber;
 
-        public string Description;
+//      public string Description;
 
         public List<ArPaymentItem> ApplyToTransactions = new List<ArPaymentItem>();
 

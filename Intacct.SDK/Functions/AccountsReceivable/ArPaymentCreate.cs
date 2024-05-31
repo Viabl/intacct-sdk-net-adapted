@@ -50,7 +50,7 @@ namespace Intacct.SDK.Functions.AccountsReceivable
             
             xml.WriteElement("overpaylocid", OverpaymentLocationId);
             xml.WriteElement("overpaydeptid", OverpaymentDepartmentId);
-            xml.WriteElement("description", Description);
+//          xml.WriteElement("description", Description);
 
             xml.WriteStartElement("datereceived");
             xml.WriteDateSplitElements(ReceivedDate.Value, true);
