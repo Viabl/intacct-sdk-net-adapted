@@ -58,6 +58,8 @@ namespace Intacct.SDK.Functions.AccountsReceivable
 
         public string ReferenceNumber;
 
+        public string Description;
+
         public List<ArPaymentItem> ApplyToTransactions = new List<ArPaymentItem>();
 
         protected AbstractArPayment(string controlId = null) : base(controlId)
