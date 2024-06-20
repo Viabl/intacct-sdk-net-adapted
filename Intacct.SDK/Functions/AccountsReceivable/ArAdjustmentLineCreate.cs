@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+using Intacct.SDK.Functions.AccountsPayable;
 using Intacct.SDK.Xml;
 
 namespace Intacct.SDK.Functions.AccountsReceivable
@@ -57,6 +58,16 @@ namespace Intacct.SDK.Functions.AccountsReceivable
             xml.WriteElement("classid", ClassId);
             xml.WriteElement("contractid", ContractId);
             xml.WriteElement("warehouseid", WarehouseId);
+
+            if (Taxentry.Count > 0)
+            {
+                xml.WriteStartElement("taxentries");
+                foreach (AbstractBillLineTaxEntries taxEntry in Taxentry)
+                {
+                    taxEntry.WriteXml(ref xml);
+                }
+                xml.WriteEndElement(); //taxentries
+            }
 
             xml.WriteEndElement(); //lineitem
         }

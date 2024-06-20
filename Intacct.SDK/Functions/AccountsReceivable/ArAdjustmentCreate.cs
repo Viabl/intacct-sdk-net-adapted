@@ -59,7 +59,8 @@ namespace Intacct.SDK.Functions.AccountsReceivable
             WriteXmlMultiCurrencySection(ref xml);
 
             xml.WriteElement("nogl", DoNotPostToGl);
-            
+            xml.WriteElement("taxsolutionid", TaxSolutionId);
+
             xml.WriteCustomFieldsExplicit(CustomFields);
 
             xml.WriteStartElement("aradjustmentitems");

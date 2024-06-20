@@ -54,6 +54,8 @@ namespace Intacct.SDK.Functions.AccountsReceivable
 
         public string AdjustmentNumber;
 
+        public string TaxSolutionId;
+
         public Dictionary<string, dynamic> CustomFields = new Dictionary<string, dynamic>();
 
         public List<AbstractArAdjustmentLine> Lines = new List<AbstractArAdjustmentLine>();

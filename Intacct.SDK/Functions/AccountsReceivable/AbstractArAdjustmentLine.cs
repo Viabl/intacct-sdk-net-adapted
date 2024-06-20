@@ -14,6 +14,7 @@
  */
 
 using System.Collections.Generic;
+using Intacct.SDK.Functions.AccountsPayable;
 using Intacct.SDK.Xml;
 
 namespace Intacct.SDK.Functions.AccountsReceivable
@@ -58,6 +59,8 @@ namespace Intacct.SDK.Functions.AccountsReceivable
         public string ContractId;
         
         public string WarehouseId;
+
+        public List<AbstractBillLineTaxEntries> Taxentry = new List<AbstractBillLineTaxEntries>();
 
         public Dictionary<string, dynamic> CustomFields = new Dictionary<string, dynamic>();
 
