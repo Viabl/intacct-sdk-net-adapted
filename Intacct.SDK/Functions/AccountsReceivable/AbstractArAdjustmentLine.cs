@@ -60,7 +60,7 @@ namespace Intacct.SDK.Functions.AccountsReceivable
         
         public string WarehouseId;
 
-        public List<AbstractBillLineTaxEntries> Taxentry = new List<AbstractBillLineTaxEntries>();
+        public List<ArAdjustmentTaxEntriesCreate> Taxentry = new List<ArAdjustmentTaxEntriesCreate>();
 
         public Dictionary<string, dynamic> CustomFields = new Dictionary<string, dynamic>();
 
@@ -69,5 +69,36 @@ namespace Intacct.SDK.Functions.AccountsReceivable
         }
 
         public abstract void WriteXml(ref IaXmlWriter xml);
+    }
+
+    public class ArAdjustmentTaxEntriesCreate : AbstractArAdjustmentTaxEntries
+    {
+        public ArAdjustmentTaxEntriesCreate()
+        {
+        }
+
+        public override void WriteXml(ref IaXmlWriter xml)
+        {
+            //xml.WriteStartElement("taxentries");
+            xml.WriteStartElement("taxentry");
+
+            xml.WriteElement("detailid", TaxId);
+            xml.WriteElement("trx_tax", TaxValue);
+
+            xml.WriteEndElement();//taxentry
+            //xml.WriteEndElement(); //taxentries
+        }
+    }
+
+    public abstract class AbstractArAdjustmentTaxEntries : IXmlObject
+    {
+        public string TaxId;
+        public decimal? TaxValue;
+
+        public abstract void WriteXml(ref IaXmlWriter xml);
+
+        protected AbstractArAdjustmentTaxEntries()
+        {
+        }
     }
 }

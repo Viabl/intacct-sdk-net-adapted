@@ -62,7 +62,7 @@ namespace Intacct.SDK.Functions.AccountsReceivable
             if (Taxentry.Count > 0)
             {
                 xml.WriteStartElement("taxentries");
-                foreach (AbstractBillLineTaxEntries taxEntry in Taxentry)
+                foreach (AbstractArAdjustmentTaxEntries taxEntry in Taxentry)
                 {
                     taxEntry.WriteXml(ref xml);
                 }
