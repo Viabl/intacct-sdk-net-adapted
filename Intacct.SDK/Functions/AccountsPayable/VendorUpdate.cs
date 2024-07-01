@@ -56,6 +56,8 @@ namespace Intacct.SDK.Functions.AccountsPayable
             xml.WriteElement("EMAIL2", SecondaryEmailAddress);
             xml.WriteElement("URL1", PrimaryUrl);
             xml.WriteElement("URL2", SecondaryUrl);
+            xml.WriteElement("TAXSOLUTIONID", TaxSolutionId);
+            xml.WriteElement("TAXSCHEDULE", TaxScheduleId);
 
             WriteXmlMailAddress(ref xml);
 

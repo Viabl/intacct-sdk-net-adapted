@@ -154,6 +154,10 @@ namespace Intacct.SDK.Functions.AccountsPayable
 
         public List<string> RestrictedDepartments = new List<string>();
 
+        public string TaxSolutionId;
+
+        public string TaxScheduleId;
+
         public Dictionary<string, dynamic> CustomFields = new Dictionary<string, dynamic>();
 
         protected AbstractVendor(string controlId = null) : base(controlId)

@@ -63,7 +63,9 @@ namespace Intacct.SDK.Functions.AccountsReceivable
             xml.WriteElement("EMAIL2", SecondaryEmailAddress);
             xml.WriteElement("URL1", PrimaryUrl);
             xml.WriteElement("URL2", SecondaryUrl);
-
+            xml.WriteElement("TAXSOLUTIONID", TaxSolutionId);
+            xml.WriteElement("TAXSCHEDULE", TaxScheduleId);
+            xml.WriteElement("TAXGROUP", TaxGroupId);
             WriteXmlMailAddress(ref xml);
 
             xml.WriteEndElement(); //DISPLAYCONTACT
@@ -98,6 +100,7 @@ namespace Intacct.SDK.Functions.AccountsReceivable
             xml.WriteElement("CUSTMESSAGEID", DefaultInvoiceMessage);
             xml.WriteElement("COMMENTS", Comments);
             xml.WriteElement("CURRENCY", DefaultCurrency);
+            xml.WriteElement("TAXSOLUTIONID", TaxSolutionId);
 
             xml.WriteElement("ARINVOICEPRINTTEMPLATEID", PrintOptionArInvoiceTemplateName);
             xml.WriteElement("OEQUOTEPRINTTEMPLATEID", PrintOptionOeQuoteTemplateName);
